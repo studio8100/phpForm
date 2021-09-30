@@ -1,7 +1,28 @@
 <?php
 
 if(isset($_POST['submit'])) {
-	echo "This is working";
+	
+	$name = array("Paul", "Krissy", "Evee");
+	
+	$minimum = 3;
+	
+	$username = $_POST['username'];
+	$password = $_POST['password'];
+	
+	if(strlen($username) < $minimum) {
+		echo "Username needs to be more than 3 letters";
+	}
+	
+	if(!in_array($username, $name)) {
+		echo "No Access Allowed";
+	} else {
+		echo "Welcome!";
+	}
+	
+//	echo $username;
+//	echo $password;
+	
+	
 }
 
 ?>
@@ -18,8 +39,8 @@ if(isset($_POST['submit'])) {
 
 	<form action="index.php" method="post">
 	
-		<input type="text" placeholder="Username">
-		<input type="password" placeholder="Password">
+		<input type="text" name="username" placeholder="Username">
+		<input type="password" name="password" placeholder="Password">
 		<br>
 		<input type="submit" name="submit">
 	
